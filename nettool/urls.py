@@ -15,8 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
+# This file is part of the nettool project and contains the URL routing for the application.
+# It includes the admin interface and the URLs for the interface_config app.
+# The interface_config app is included under the 'interface/' path.
+# The admin interface is accessible at 'admin/'.
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('interface/', include('interface_config.urls')),
+    path('logbook/', include('logbook.urls')),
 ]
